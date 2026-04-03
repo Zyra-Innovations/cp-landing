@@ -177,7 +177,7 @@ const Services = () => {
       id="services"
       title="Detailed Services Catalog"
       subtitle="We Build. You Grow. 12 Comprehensive Service Areas and End-to-End Digital Solutions."
-      bgColor="bg-gray-50"
+      bgColor="bg-white/10 backdrop-blur-md"
     >
       <motion.div
         className="max-w-4xl mx-auto mb-10 text-center"
@@ -210,7 +210,6 @@ const Services = () => {
                 <motion.div
                   className="mb-4 inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl text-white"
                   whileHover={{
-                    rotate: 45,
                     scale: 1.15,
                     boxShadow: '0 15px 40px rgba(14, 165, 233, 0.4)',
                   }}
@@ -262,16 +261,9 @@ const Services = () => {
                   }}
                 >
                   {isExpanded ? 'Show less' : 'View detailed scope'}
-                  <motion.span
-                    className="ml-2 inline-block"
-                    animate={isExpanded ? { rotate: 180 } : { rotate: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      ease: 'easeInOut',
-                    }}
-                  >
+                  <span className="ml-2 inline-block">
                     <ChevronDown className="w-4 h-4" />
-                  </motion.span>
+                  </span>
                 </motion.a>
 
                 <AnimatePresence initial={false}>

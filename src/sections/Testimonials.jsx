@@ -71,7 +71,7 @@ const Testimonials = () => {
       id="testimonials"
       title="What Our Clients Say"
       subtitle="Real stories from satisfied customers"
-      bgColor="bg-white"
+      bgColor="bg-white/20 backdrop-blur-md"
     >
       {/* Desktop Grid View */}
       <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -93,14 +93,14 @@ const Testimonials = () => {
               >
                 <motion.div
                   className="text-4xl"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.3 }}
                 >
                   {testimonial.avatar}
                 </motion.div>
                 <div>
                   <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <p className="text-sm text-gray-700">{testimonial.role}</p>
                 </div>
               </motion.div>
               <motion.div
@@ -124,7 +124,7 @@ const Testimonials = () => {
                     </motion.div>
                   ))}
               </motion.div>
-              <p className="text-gray-600 italic">"{testimonial.content}"</p>
+              <p className="text-gray-800 italic">"{testimonial.content}"</p>
             </Card>
           </motion.div>
         ))}
@@ -146,7 +146,7 @@ const Testimonials = () => {
                   <div className="text-5xl">{testimonial.avatar}</div>
                   <div>
                     <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-sm text-gray-700">{testimonial.role}</p>
                   </div>
                 </div>
                 <div className="flex gap-1 mb-4">
@@ -156,7 +156,7 @@ const Testimonials = () => {
                       <Star key={i} className="w-5 h-5 fill-primary-400 text-primary-400" />
                     ))}
                 </div>
-                <p className="text-gray-600 italic text-lg">"{testimonial.content}"</p>
+                <p className="text-gray-800 italic text-lg">"{testimonial.content}"</p>
               </Card>
             </motion.div>
           ))}
@@ -173,7 +173,7 @@ const Testimonials = () => {
           <motion.button
             onClick={handlePrev}
             className="p-2 rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50"
-            whileHover={{ scale: 1.15, rotate: -180 }}
+            whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
@@ -182,7 +182,7 @@ const Testimonials = () => {
           <motion.button
             onClick={handleNext}
             className="p-2 rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50"
-            whileHover={{ scale: 1.15, rotate: 180 }}
+            whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
@@ -233,7 +233,7 @@ const Testimonials = () => {
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={10000} duration={2} suffix="+" />
           </div>
-          <p className="text-gray-600">Happy Clients</p>
+          <p className="text-gray-800">Happy Clients</p>
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.1, y: -5 }}
@@ -242,7 +242,7 @@ const Testimonials = () => {
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={98} duration={2} suffix="%" />
           </div>
-          <p className="text-gray-600">Satisfaction Rate</p>
+          <p className="text-gray-800">Satisfaction Rate</p>
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.1, y: -5 }}
@@ -251,7 +251,7 @@ const Testimonials = () => {
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={50} duration={2} suffix="+" />
           </div>
-          <p className="text-gray-600">Awards Won</p>
+          <p className="text-gray-800">Awards Won</p>
         </motion.div>
       </motion.div>
     </SectionWrapper>

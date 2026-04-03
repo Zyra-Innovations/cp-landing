@@ -78,7 +78,7 @@ const Features = () => {
       id="features"
       title="Powerful Features"
       subtitle="Everything you need to create stunning digital experiences"
-      bgColor="bg-gray-50"
+      bgColor="bg-white/10 backdrop-blur-md"
     >
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -95,7 +95,6 @@ const Features = () => {
                 <motion.div
                   className="mb-4 inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg group-hover:shadow-lg"
                   whileHover={{
-                    rotate: 360,
                     scale: 1.2,
                     boxShadow: '0 10px 30px rgba(14, 165, 233, 0.3)',
                   }}
@@ -125,7 +124,7 @@ const Features = () => {
                 </motion.h3>
 
                 <motion.p
-                  className="text-gray-600 leading-relaxed"
+                  className="text-gray-800 leading-relaxed"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}

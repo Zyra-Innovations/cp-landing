@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true,
+    allowedHosts: ['loma-semiperceptive-loris.ngrok-free.dev'],
   },
   build: {
     outDir: 'dist',

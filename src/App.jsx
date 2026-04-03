@@ -22,16 +22,27 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      <Navbar scrollPosition={scrollPosition} />
-      <Hero />
-      <Features />
-      <About />
-      <CompanyProfile />
-      <Services />
-      <Testimonials />
-      <CTA />
-      <Footer />
+    <div 
+      className="min-h-screen overflow-x-hidden relative"
+      style={{
+        backgroundImage: 'url(/background.png)',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="relative z-10">
+        <Navbar scrollPosition={scrollPosition} />
+        <Hero />
+        <Features />
+        <About />
+        <CompanyProfile />
+        <Services />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </div>
     </div>
   )
 }

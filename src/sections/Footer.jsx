@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+import { Github, Linkedin, Instagram, Mail, Phone } from 'lucide-react'
 
 /**
  * Footer Section
@@ -17,16 +17,15 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Mail, href: 'mailto:hello@company.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/zyra-innovations/?viewAsMember=true', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/zyra_innovations?igsh=dXlnbGw5ZXZ2aG00', label: 'Instagram' },
+    { icon: Github, href: 'https://github.com/Zyra-Innovations', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:zyrainnovations07@gmail.com', label: 'Email' },
   ]
 
   const contactInfo = [
-    { icon: Mail, text: 'hello@company.com' },
-    { icon: Phone, text: '+1 (555) 123-4567' },
-    { icon: MapPin, text: '123 Innovation St, Tech City, TC 12345' },
+    { icon: Mail, text: 'zyrainnovations07@gmail.com' },
+    { icon: Phone, text: '9739360260' },
   ]
 
   return (
@@ -42,7 +41,14 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-white mb-3">Company</h3>
+            <div className="flex items-center gap-3 mb-3">
+              <img
+                src="/logo.png"
+                alt="Zyra Innovations logo"
+                className="h-10 w-10 rounded-lg object-contain"
+              />
+              <h3 className="text-2xl font-bold text-white">Zyra Innovations</h3>
+            </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Building amazing digital experiences that drive growth and engagement.
             </p>
@@ -109,7 +115,7 @@ const Footer = () => {
         >
           {/* Copyright */}
           <p className="text-gray-400 text-center md:text-left">
-            © {currentYear} Company. All rights reserved.
+            © {currentYear} Zyra Innovations. All rights reserved.
           </p>
 
           {/* Social Links */}
@@ -125,7 +131,6 @@ const Footer = () => {
                   whileHover={{
                     scale: 1.15,
                     y: -4,
-                    rotateZ: 360,
                     boxShadow: '0 0 25px rgba(14, 165, 233, 0.6)',
                   }}
                   whileTap={{ scale: 0.9 }}

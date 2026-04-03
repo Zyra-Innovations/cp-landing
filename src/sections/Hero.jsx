@@ -31,7 +31,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-primary-50/30 via-white/30 to-secondary-50/30 backdrop-blur-md">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-20 right-10 w-96 h-96 bg-primary-200 rounded-full opacity-20 blur-3xl"
@@ -80,7 +80,7 @@ const Hero = () => {
           {/* Badge */}
           <motion.div variants={itemVariants} className="mb-8">
             <motion.span
-              className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold"
+              className="inline-block px-4 py-2 bg-white/40 backdrop-blur-md text-primary-700 rounded-full text-sm font-semibold border border-white/60 shadow-lg"
               animate={{
                 scale: [1, 1.05, 1],
                 boxShadow: [
@@ -160,7 +160,7 @@ const Hero = () => {
               >
                 <motion.div
                   className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600"
-                  whileHover={{ scale: 1.1, rotate: 360 }}
+                  whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 >
                   {item.icon}
@@ -188,7 +188,7 @@ const Hero = () => {
             >
               <motion.div
                 className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                whileHover={{ scale: 1.15, rotate: 180 }}
+                whileHover={{ scale: 1.15 }}
                 transition={{ duration: 0.5 }}
               >
                 <Play className="w-8 h-8 text-primary-600 ml-1" />

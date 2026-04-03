@@ -28,7 +28,12 @@ html {
 /* Global base styles */
 @layer base {
   body {
-    @apply bg-white text-gray-900 font-sans;
+    @apply text-gray-900 font-sans;
+    background-image: url('/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   h1, h2, h3, h4, h5, h6 {

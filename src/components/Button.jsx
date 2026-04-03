@@ -18,7 +18,7 @@ const Button = ({
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap cursor-pointer'
 
   const variants = {
-    primary: 'bg-primary-600 text-white hover:bg-primary-700 shadow-lg hover:shadow-xl hover:scale-105',
+    primary: 'bg-gradient-to-r from-primary-600/80 to-primary-600/60 backdrop-blur-md text-white hover:from-primary-600 hover:to-primary-600/80 shadow-lg hover:shadow-xl hover:scale-105 border border-white/20',
     secondary: 'bg-secondary-600 text-white hover:bg-secondary-700 shadow-lg hover:shadow-xl',
     outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50',
     ghost: 'text-primary-600 hover:bg-primary-50',

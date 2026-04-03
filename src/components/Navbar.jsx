@@ -24,7 +24,7 @@ const Navbar = ({ scrollPosition }) => {
   return (
     <motion.nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/30 backdrop-blur-xl shadow-lg border-b border-white/20' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -35,10 +35,15 @@ const Navbar = ({ scrollPosition }) => {
           {/* Logo */}
           <motion.a
             href="#"
-            className="text-2xl font-bold text-gradient cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
-            Company
+            <img
+              src="/logo.png"
+              alt="Zyra Innovations logo"
+              className="h-10 w-10 rounded-lg object-contain"
+            />
+            <span className="text-xl sm:text-2xl font-bold text-gradient">Zyra Innovations</span>
           </motion.a>
 
           {/* Desktop Menu */}

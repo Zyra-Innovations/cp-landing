@@ -25,9 +25,9 @@ const CTA = () => {
   }
 
   return (
-    <SectionWrapper id="cta" bgColor="bg-gradient-to-r from-primary-600 to-secondary-600">
+    <SectionWrapper id="cta" bgColor="bg-gradient-to-r from-primary-700/70 to-secondary-700/70 backdrop-blur-md">
       <motion.div
-        className="max-w-3xl mx-auto text-center text-white"
+        className="max-w-4xl mx-auto text-center text-white rounded-3xl border border-white/20 bg-black/20 backdrop-blur-lg px-6 py-10 md:px-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -44,13 +44,13 @@ const CTA = () => {
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 mb-8 max-w-2xl mx-auto">
           <div className="flex-1 relative">
-            <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/80" />
             <motion.input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 sm:py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white shadow-lg text-gray-900 transition-all"
+              className="w-full pl-12 pr-4 py-3 sm:py-4 bg-white/85 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-white shadow-lg text-gray-900 placeholder:text-gray-500 transition-all"
               whileFocus={{
                 boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
                 scale: 1.02,
@@ -96,7 +96,7 @@ const CTA = () => {
           viewport={{ once: true }}
         >
           <motion.div
-            className="bg-white/10 backdrop-blur-md rounded-lg p-4 cursor-pointer"
+            className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}
@@ -105,7 +105,7 @@ const CTA = () => {
           >
             <motion.div
               className="text-3xl mb-2"
-              animate={{ rotate: [0, -10, 10, 0], y: [0, -5, 0] }}
+              animate={{ y: [0, -5, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               ⚡
@@ -114,7 +114,7 @@ const CTA = () => {
             <p className="text-sm text-white/80">Start in minutes</p>
           </motion.div>
           <motion.div
-            className="bg-white/10 backdrop-blur-md rounded-lg p-4 cursor-pointer"
+            className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}
@@ -132,7 +132,7 @@ const CTA = () => {
             <p className="text-sm text-white/80">Enterprise security</p>
           </motion.div>
           <motion.div
-            className="bg-white/10 backdrop-blur-md rounded-lg p-4 cursor-pointer"
+            className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}

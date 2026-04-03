@@ -14,9 +14,9 @@ const Card = ({
   ...props
 }) => {
   const cardClass = `
-    rounded-xl p-6
-    bg-white border border-gray-100
-    ${hover ? 'cursor-pointer' : 'shadow-lg'}
+    rounded-2xl p-6
+    bg-white/40 backdrop-blur-md border border-white/60 shadow-xl
+    ${hover ? 'cursor-pointer' : ''}
     ${className}
   `
 
@@ -29,8 +29,9 @@ const Card = ({
         hover
           ? {
               y: -12,
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
               scale: 1.02,
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
             }
           : {}
       }
