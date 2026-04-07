@@ -80,7 +80,7 @@ const Testimonials = () => {
             key={testimonial.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            transition={{ duration: 0.75, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
           >
             <Card className="p-8">
@@ -88,13 +88,13 @@ const Testimonials = () => {
                 className="flex items-start gap-4 mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
               >
                 <motion.div
                   className="text-4xl"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 20 }}
                 >
                   {testimonial.avatar}
                 </motion.div>
@@ -117,7 +117,7 @@ const Testimonials = () => {
                       key={i}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.2 + i * 0.1 }}
+                      transition={{ duration: 0.45, delay: 0.16 + i * 0.06 }}
                       viewport={{ once: true }}
                     >
                       <Star className="w-5 h-5 fill-primary-400 text-primary-400" />
@@ -139,7 +139,7 @@ const Testimonials = () => {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             >
               <Card className="p-8 relative">
                 <div className="flex items-start gap-4 mb-4">
@@ -167,24 +167,24 @@ const Testimonials = () => {
           className="flex justify-center gap-4 mt-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.75, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
           <motion.button
             onClick={handlePrev}
             className="p-2 rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50"
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: 'spring', stiffness: 220, damping: 22 }}
           >
             <ChevronLeft className="w-6 h-6" />
           </motion.button>
           <motion.button
             onClick={handleNext}
             className="p-2 rounded-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50"
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: 'spring', stiffness: 220, damping: 22 }}
           >
             <ChevronRight className="w-6 h-6" />
           </motion.button>
@@ -195,7 +195,7 @@ const Testimonials = () => {
           className="flex justify-center gap-2 mt-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
           {testimonials.map((_, index) => (
@@ -205,14 +205,14 @@ const Testimonials = () => {
               className={`w-2 h-2 rounded-full ${
                 index === activeIndex ? 'bg-primary-600' : 'bg-gray-300'
               }`}
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.12 }}
+              whileTap={{ scale: 0.94 }}
               animate={
                 index === activeIndex
                   ? { boxShadow: '0 0 10px rgba(14, 165, 233, 0.5)' }
                   : { boxShadow: '0 0 0px rgba(14, 165, 233, 0)' }
               }
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.45 }}
             />
           ))}
         </motion.div>
@@ -223,12 +223,12 @@ const Testimonials = () => {
         className="mt-16 grid grid-cols-3 gap-8 text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.75, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <motion.div
-          whileHover={{ scale: 1.1, y: -5 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.04, y: -2 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 22 }}
         >
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={10000} duration={2} suffix="+" />
@@ -236,8 +236,8 @@ const Testimonials = () => {
           <p className="text-gray-800">Happy Clients</p>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.1, y: -5 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.04, y: -2 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 22 }}
         >
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={98} duration={2} suffix="%" />
@@ -245,8 +245,8 @@ const Testimonials = () => {
           <p className="text-gray-800">Satisfaction Rate</p>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.1, y: -5 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.04, y: -2 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 22 }}
         >
           <div className="text-4xl font-bold text-primary-600 mb-2">
             <AnimatedCounter from={0} to={50} duration={2} suffix="+" />

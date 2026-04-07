@@ -63,7 +63,7 @@ const CompanyProfile = () => {
         className="max-w-5xl mx-auto mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <div className="rounded-3xl border border-white/50 backdrop-blur-lg p-6 md:p-8 bg-gradient-to-br from-white/40 via-primary-100/30 to-white/40 shadow-xl">
@@ -99,9 +99,9 @@ const CompanyProfile = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-start">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
           className="relative overflow-hidden rounded-3xl border border-white/50 backdrop-blur-lg p-7 md:p-8 bg-gradient-to-br from-white/40 via-primary-100/20 to-white/40 shadow-xl self-start"
         >
@@ -125,9 +125,9 @@ const CompanyProfile = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 16 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
           className="relative overflow-hidden rounded-3xl border border-white/50 backdrop-blur-lg p-7 md:p-8 bg-gradient-to-br from-white/40 via-secondary-100/20 to-white/40 shadow-xl self-start"
         >
@@ -159,7 +159,7 @@ const CompanyProfile = () => {
         className="rounded-3xl border border-white/50 backdrop-blur-lg p-6 mb-10 bg-gradient-to-br from-white/40 via-primary-100/20 to-white/40 shadow-xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <h3 className="text-xl font-bold text-gray-900 mb-4">Our Expertise</h3>
@@ -174,8 +174,8 @@ const CompanyProfile = () => {
               className="flex items-start gap-2 text-gray-800 bg-white/40 backdrop-blur-md border border-white/60 rounded-2xl p-3 shadow-md"
               initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              whileHover={{ x: idx % 2 === 0 ? 6 : -6, y: -2 }}
-              transition={{ duration: 0.45, ease: 'easeOut', delay: idx * 0.05 }}
+              whileHover={{ x: idx % 2 === 0 ? 3 : -3, y: -1 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.04 }}
               viewport={{ once: true }}
             >
               <CheckCircle2 className="w-4 h-4 text-primary-600 mt-1 flex-shrink-0" />
@@ -189,7 +189,7 @@ const CompanyProfile = () => {
         className="rounded-2xl border border-gray-200 p-6 mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us</h3>
@@ -207,7 +207,7 @@ const CompanyProfile = () => {
         className="rounded-2xl border border-gray-200 p-6 mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <h3 className="text-xl font-bold text-gray-900 mb-4">Our Approach: Step-by-Step Workflow</h3>
@@ -225,7 +225,7 @@ const CompanyProfile = () => {
         className="rounded-2xl border border-gray-200 overflow-hidden mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <div className="p-5 border-b border-gray-200 flex items-center gap-2">
@@ -256,7 +256,7 @@ const CompanyProfile = () => {
         className="max-w-4xl mx-auto text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <p className="text-gray-600 leading-relaxed mb-3">

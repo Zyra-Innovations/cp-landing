@@ -21,9 +21,9 @@ const About = () => {
     <SectionWrapper id="about" bgColor="bg-white/20 backdrop-blur-md">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -44,9 +44,9 @@ const About = () => {
               <motion.div
                 key={benefit}
                 className="flex items-center gap-3"
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: benefits.indexOf(benefit) * 0.1 }}
+                transition={{ duration: 0.6, delay: benefits.indexOf(benefit) * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
               >
                 <motion.div>
@@ -54,8 +54,8 @@ const About = () => {
                 </motion.div>
                 <motion.span
                   className="text-gray-900 font-semibold"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
+                  whileHover={{ x: 2 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 20 }}
                 >
                   {benefit}
                 </motion.span>

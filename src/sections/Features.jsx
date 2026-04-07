@@ -61,14 +61,14 @@ const Features = () => {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8, rotateX: -20 },
+    hidden: { opacity: 0, scale: 0.96, rotateX: -8 },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   }
@@ -95,19 +95,17 @@ const Features = () => {
                 <motion.div
                   className="mb-4 inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg group-hover:shadow-lg"
                   whileHover={{
-                    scale: 1.2,
+                    scale: 1.06,
                     boxShadow: '0 10px 30px rgba(14, 165, 233, 0.3)',
                   }}
                   animate={{
-                    y: [0, -5, 0],
-                  }}
-                  whileInView={{
-                    y: [0, -5, 0],
+                    y: [0, -4, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 5,
                     repeat: Infinity,
-                    delay: idx * 0.1,
+                    delay: idx * 0.12,
+                    ease: 'easeInOut',
                   }}
                 >
                   <Icon className="w-7 h-7 text-primary-600" />
@@ -117,7 +115,7 @@ const Features = () => {
                   className="text-xl font-bold text-gray-900 mb-3"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  transition={{ duration: 0.65, delay: 0.15 }}
                   viewport={{ once: true }}
                 >
                   {feature.title}
@@ -127,7 +125,7 @@ const Features = () => {
                   className="text-gray-800 leading-relaxed"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: 0.65, delay: 0.22 }}
                   viewport={{ once: true }}
                 >
                   {feature.description}
@@ -138,7 +136,7 @@ const Features = () => {
                   className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-secondary-500"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 24 }}
                   style={{ transformOrigin: 'left' }}
                 />
               </Card>

@@ -15,7 +15,7 @@ const Button = ({
   href = null,
   ...props
 }) => {
-  const baseStyles = 'font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap cursor-pointer'
+  const baseStyles = 'font-semibold rounded-lg transition-colors duration-300 inline-flex items-center justify-center whitespace-nowrap cursor-pointer transform-gpu'
 
   const variants = {
     primary: 'bg-gradient-to-r from-primary-600/80 to-primary-600/60 backdrop-blur-md text-white hover:from-primary-600 hover:to-primary-600/80 shadow-lg hover:shadow-xl hover:scale-105 border border-white/20',
@@ -37,8 +37,9 @@ const Button = ({
       <motion.a
         href={href}
         className={combinedClass}
-        whileHover={{ y: -2 }}
+        whileHover={{ y: -1, scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 24 }}
         {...props}
       >
         {children}
@@ -51,8 +52,9 @@ const Button = ({
       className={combinedClass}
       onClick={onClick}
       disabled={disabled}
-      whileHover={{ y: -2 }}
+      whileHover={{ y: -1, scale: 1.01 }}
       whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 280, damping: 24 }}
       {...props}
     >
       {children}

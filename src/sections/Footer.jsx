@@ -38,7 +38,7 @@ const Footer = () => {
             className="lg:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-3 mb-3">
@@ -73,7 +73,7 @@ const Footer = () => {
               key={title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.7, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
             >
               <h4 className="font-semibold text-white mb-4">{title}</h4>
@@ -83,15 +83,15 @@ const Footer = () => {
                     <motion.a
                       href="#"
                       className="text-gray-400 relative inline-block"
-                      whileHover={{ color: '#ffffff', x: 4 }}
-                      transition={{ duration: 0.3 }}
+                      whileHover={{ color: '#ffffff', x: 2 }}
+                      transition={{ type: 'spring', stiffness: 220, damping: 22 }}
                     >
                       {link}
                       <motion.span
                         className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"
                         initial={{ scaleX: 0 }}
                         whileHover={{ scaleX: 1 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ type: 'spring', stiffness: 220, damping: 24 }}
                         style={{ originX: 0 }}
                       />
                     </motion.a>
@@ -110,7 +110,7 @@ const Footer = () => {
           className="flex flex-col md:flex-row justify-between items-center gap-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
           {/* Copyright */}
@@ -129,19 +129,19 @@ const Footer = () => {
                   aria-label={social.label}
                   className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-600 to-secondary-600 flex items-center justify-center text-white relative"
                   whileHover={{
-                    scale: 1.15,
-                    y: -4,
-                    boxShadow: '0 0 25px rgba(14, 165, 233, 0.6)',
+                    scale: 1.06,
+                    y: -2,
+                    boxShadow: '0 0 18px rgba(14, 165, 233, 0.35)',
                   }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                  whileTap={{ scale: 0.94 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                 >
                   <Icon className="w-5 h-5" />
                   <motion.div
                     className="absolute inset-0 rounded-full bg-primary-400"
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileHover={{ opacity: 0, scale: 1.5 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                     style={{ zIndex: -1 }}
                   />
                 </motion.a>
@@ -151,10 +151,10 @@ const Footer = () => {
 
           {/* Additional Links */}
           <div className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-white transition duration-300">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
               Privacy
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition duration-300">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
               Terms
             </a>
           </div>

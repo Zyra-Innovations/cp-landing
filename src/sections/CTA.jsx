@@ -30,7 +30,7 @@ const CTA = () => {
         className="max-w-4xl mx-auto text-center text-white rounded-3xl border border-white/20 bg-black/20 backdrop-blur-lg px-6 py-10 md:px-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <h2 className="text-5xl md:text-6xl font-bold mb-6">
@@ -53,7 +53,7 @@ const CTA = () => {
               className="w-full pl-12 pr-4 py-3 sm:py-4 bg-white/85 backdrop-blur-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-white shadow-lg text-gray-900 placeholder:text-gray-500 transition-all"
               whileFocus={{
                 boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
-                scale: 1.02,
+                scale: 1.01,
               }}
               required
             />
@@ -99,14 +99,14 @@ const CTA = () => {
             className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}
-            transition={{ duration: 0.4 }}
+            whileHover={{ y: -4, boxShadow: '0 16px 28px rgba(255,255,255,0.08)' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22 }}
             viewport={{ once: true }}
           >
             <motion.div
               className="text-3xl mb-2"
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
               ⚡
             </motion.div>
@@ -117,14 +117,14 @@ const CTA = () => {
             className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            whileHover={{ y: -4, boxShadow: '0 16px 28px rgba(255,255,255,0.08)' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.08 }}
             viewport={{ once: true }}
           >
             <motion.div
               className="text-3xl mb-2"
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
             >
               🔒
             </motion.div>
@@ -135,14 +135,14 @@ const CTA = () => {
             className="bg-white/20 backdrop-blur-md rounded-lg p-4 cursor-pointer border border-white/25"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(255,255,255,0.1)' }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            whileHover={{ y: -4, boxShadow: '0 16px 28px rgba(255,255,255,0.08)' }}
+            transition={{ type: 'spring', stiffness: 180, damping: 22, delay: 0.16 }}
             viewport={{ once: true }}
           >
             <motion.div
               className="text-3xl mb-2"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
             >
               🎯
             </motion.div>

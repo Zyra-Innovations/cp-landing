@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import Features from './sections/Features'
@@ -10,15 +10,30 @@ import CTA from './sections/CTA'
 import Footer from './sections/Footer'
 
 function App() {
-  const [scrollPosition, setScrollPosition] = useState(0)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const rafId = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY)
+      if (rafId.current !== null) {
+        return
+      }
+
+      rafId.current = window.requestAnimationFrame(() => {
+        const nextIsScrolled = window.scrollY > 50
+        setIsScrolled((previous) => (previous === nextIsScrolled ? previous : nextIsScrolled))
+        rafId.current = null
+      })
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId.current !== null) {
+        window.cancelAnimationFrame(rafId.current)
+      }
+    }
   }, [])
 
   return (
@@ -33,7 +48,7 @@ function App() {
       }}
     >
       <div className="relative z-10">
-        <Navbar scrollPosition={scrollPosition} />
+        <Navbar isScrolled={isScrolled} />
         <Hero />
         <Features />
         <About />

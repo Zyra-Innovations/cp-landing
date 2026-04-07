@@ -161,13 +161,13 @@ const Services = () => {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   }
@@ -183,7 +183,7 @@ const Services = () => {
         className="max-w-4xl mx-auto mb-10 text-center"
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
       >
         <p className="text-gray-600 leading-relaxed">
@@ -210,16 +210,17 @@ const Services = () => {
                 <motion.div
                   className="mb-4 inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl text-white"
                   whileHover={{
-                    scale: 1.15,
-                    boxShadow: '0 15px 40px rgba(14, 165, 233, 0.4)',
+                    scale: 1.05,
+                    boxShadow: '0 12px 28px rgba(14, 165, 233, 0.28)',
                   }}
                   animate={{
-                    y: [0, -5, 0],
+                    y: [0, -3, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 5,
                     repeat: Infinity,
-                    delay: idx * 0.1,
+                    delay: idx * 0.12,
+                    ease: 'easeInOut',
                   }}
                 >
                   <Icon className="w-7 h-7" />
@@ -229,7 +230,7 @@ const Services = () => {
                     className="block"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.05 + 0.3, duration: 0.5 }}
+                    transition={{ delay: idx * 0.05 + 0.26, duration: 0.65 }}
                     viewport={{ once: true }}
                   >
                     {service.title}
@@ -240,7 +241,7 @@ const Services = () => {
                     className="block"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.05 + 0.4, duration: 0.5 }}
+                    transition={{ delay: idx * 0.05 + 0.34, duration: 0.65 }}
                     viewport={{ once: true }}
                   >
                     {service.overview}
@@ -254,7 +255,7 @@ const Services = () => {
                 <motion.a
                   href="#services"
                   className="inline-flex items-center text-primary-600 font-semibold overflow-hidden"
-                  whileHover={{ color: '#0284c7' }}
+                  whileHover={{ color: '#0284c7', x: 2 }}
                   onClick={(e) => {
                     e.preventDefault()
                     setExpandedId(isExpanded ? null : service.id)
@@ -272,7 +273,7 @@ const Services = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35 }}
+                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden mt-5 border-t border-gray-100 pt-4"
                     >
                       <div className="mb-4">

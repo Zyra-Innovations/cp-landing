@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
 import Button from '../components/Button'
-import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations'
 
 /**
  * Hero Section
@@ -36,38 +35,38 @@ const Hero = () => {
       <motion.div
         className="absolute top-20 right-10 w-96 h-96 bg-primary-200 rounded-full opacity-20 blur-3xl"
         animate={{
-          y: [0, 50, 0],
-          x: [0, 30, 0],
-          scale: [1, 1.1, 1],
+          y: [0, 24, 0],
+          x: [0, 14, 0],
+          scale: [1, 1.04, 1],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute bottom-20 left-10 w-96 h-96 bg-secondary-200 rounded-full opacity-20 blur-3xl"
         animate={{
-          y: [0, -50, 0],
-          x: [0, -30, 0],
-          scale: [1, 1.15, 1],
+          y: [0, -24, 0],
+          x: [0, -14, 0],
+          scale: [1, 1.05, 1],
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
 
       {/* Floating accent elements */}
       <motion.div
         className="absolute top-40 left-20 w-20 h-20 bg-primary-300 rounded-full opacity-10 blur-2xl"
         animate={{
-          y: [0, -30, 0],
-          opacity: [0.1, 0.2, 0.1],
+          y: [0, -12, 0],
+          opacity: [0.1, 0.16, 0.1],
         }}
-        transition={{ duration: 5, repeat: Infinity }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute bottom-40 right-20 w-24 h-24 bg-secondary-300 rounded-full opacity-10 blur-2xl"
         animate={{
-          y: [0, 30, 0],
-          opacity: [0.1, 0.15, 0.1],
+          y: [0, 12, 0],
+          opacity: [0.1, 0.14, 0.1],
         }}
-        transition={{ duration: 6, repeat: Infinity }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 py-20">
@@ -82,14 +81,14 @@ const Hero = () => {
             <motion.span
               className="inline-block px-4 py-2 bg-white/40 backdrop-blur-md text-primary-700 rounded-full text-sm font-semibold border border-white/60 shadow-lg"
               animate={{
-                scale: [1, 1.05, 1],
+                scale: [1, 1.02, 1],
                 boxShadow: [
-                  '0 0 20px rgba(14, 165, 233, 0.2)',
-                  '0 0 40px rgba(14, 165, 233, 0.4)',
-                  '0 0 20px rgba(14, 165, 233, 0.2)',
+                  '0 0 20px rgba(14, 165, 233, 0.16)',
+                  '0 0 28px rgba(14, 165, 233, 0.26)',
+                  '0 0 20px rgba(14, 165, 233, 0.16)',
                 ],
               }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             >
               ✨ Welcome to the Future
             </motion.span>
@@ -107,7 +106,7 @@ const Hero = () => {
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
-              transition={{ duration: 8, repeat: Infinity }}
+              transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
             >
               Experiences
             </motion.span>
@@ -155,13 +154,13 @@ const Hero = () => {
                 className="flex items-center gap-2"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                transition={{ type: 'spring', stiffness: 120, damping: 20, delay: 0.2 + idx * 0.08 }}
                 viewport={{ once: true }}
               >
                 <motion.div
                   className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 20 }}
                 >
                   {item.icon}
                 </motion.div>
@@ -178,18 +177,18 @@ const Hero = () => {
         >
           <motion.div
             className="relative aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center"
-            whileHover={{ boxShadow: '0 30px 60px rgba(0, 0, 0, 0.2)' }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ boxShadow: '0 24px 48px rgba(0, 0, 0, 0.16)' }}
+            transition={{ type: 'spring', stiffness: 120, damping: 22 }}
           >
             <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className="text-center"
             >
               <motion.div
                 className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                whileHover={{ scale: 1.15 }}
-                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 240, damping: 22 }}
               >
                 <Play className="w-8 h-8 text-primary-600 ml-1" />
               </motion.div>
