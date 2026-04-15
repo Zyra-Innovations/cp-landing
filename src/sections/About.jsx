@@ -31,7 +31,7 @@ const About = () => {
           </h2>
 
           <p className="text-lg text-gray-800 mb-6 leading-relaxed">
-            Founded in 2026, we've been revolutionizing the way companies build digital experiences. Our mission is to empower businesses with cutting-edge tools and designs that drive growth.
+            Founded in 2026, we&apos;ve been revolutionizing the way companies build digital experiences. Our mission is to empower businesses with cutting-edge tools and designs that drive growth.
           </p>
 
           <p className="text-lg text-gray-800 mb-8 leading-relaxed">

@@ -4,7 +4,6 @@ import {
   Building2,
   Briefcase,
   CheckCircle2,
-  BarChart3,
 } from 'lucide-react'
 import SectionWrapper from '../components/SectionWrapper'
 
@@ -39,16 +38,6 @@ const workflowSteps = [
   ['Step 6', 'Deployment and Go-Live'],
   ['Step 7', 'Training and Handover'],
   ['Step 8', 'Maintenance and Continuous Improvement'],
-]
-
-const valueRows = [
-  ['Operational Efficiency', 'Automate repetitive processes to reduce errors and cost'],
-  ['Faster Market Entry', 'Agile delivery and reusable components accelerate launch'],
-  ['Scalable Infrastructure', 'Cloud-native architecture supports growth seamlessly'],
-  ['Data-Driven Decisions', 'Dashboards and analytics convert data into action'],
-  ['Enhanced Customer Experience', 'User-centered design improves engagement and retention'],
-  ['Revenue Growth Enablement', 'Digital channels and integrations expand revenue'],
-  ['Reduced Technology Risk', 'Security, compliance, and DR planning protect operations'],
 ]
 
 const CompanyProfile = () => {
@@ -219,52 +208,6 @@ const CompanyProfile = () => {
             </div>
           ))}
         </div>
-      </motion.div>
-
-      <motion.div
-        className="rounded-2xl border border-gray-200 overflow-hidden mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-      >
-        <div className="p-5 border-b border-gray-200 flex items-center gap-2">
-          <BarChart3 className="w-5 h-5 text-primary-600" />
-          <h3 className="text-xl font-bold text-gray-900">Value Proposition: How We Help You Grow</h3>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-900">Business Outcome</th>
-                <th className="px-4 py-3 text-sm font-semibold text-gray-900">How We Deliver It</th>
-              </tr>
-            </thead>
-            <tbody>
-              {valueRows.map(([outcome, delivery]) => (
-                <tr key={outcome} className="border-t border-gray-100">
-                  <td className="px-4 py-3 text-sm text-gray-900">{outcome}</td>
-                  <td className="px-4 py-3 text-sm text-gray-800">{delivery}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="max-w-4xl mx-auto text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-      >
-        <p className="text-gray-600 leading-relaxed mb-3">
-          Technology is the greatest equalizer in modern business. Whether you are launching your
-          first digital product, modernizing a legacy system, or scaling a high-growth platform,
-          we are ready to build it the right way.
-        </p>
-        <p className="text-lg font-bold text-gray-900">We Build. You Grow.</p>
       </motion.div>
     </SectionWrapper>
   )

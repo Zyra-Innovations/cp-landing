@@ -161,7 +161,7 @@ export const shimmer = {
   },
 }
 
-// Bounce animation
+// Bounce animation (currently unused but kept for reference)
 export const bounce = {
   animate: {
     y: [0, -6, 0],
@@ -242,6 +242,7 @@ export const textReveal = {
 }
 
 // Number counter animation (for stats)
+// eslint-disable-next-line no-unused-vars
 export const counterAnimation = (from = 0, to = 100, duration = 2) => ({
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },

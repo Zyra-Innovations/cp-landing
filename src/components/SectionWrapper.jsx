@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
 /**
@@ -38,6 +39,15 @@ const SectionWrapper = ({
       </div>
     </section>
   )
+}
+
+SectionWrapper.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string,
+  className: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  bgColor: PropTypes.string,
 }
 
 export default SectionWrapper

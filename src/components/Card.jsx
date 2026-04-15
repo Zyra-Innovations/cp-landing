@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
 /**
@@ -70,6 +71,13 @@ const Card = ({
       </motion.div>
     </motion.div>
   )
+}
+
+Card.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hover: PropTypes.bool,
+  image: PropTypes.string,
 }
 
 export default Card

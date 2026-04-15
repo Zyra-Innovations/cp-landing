@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
 /**
@@ -51,6 +52,16 @@ const AnimatedCounter = ({
       {suffix}
     </motion.span>
   )
+}
+
+AnimatedCounter.propTypes = {
+  from: PropTypes.number,
+  to: PropTypes.number,
+  duration: PropTypes.number,
+  suffix: PropTypes.string,
+  prefix: PropTypes.string,
+  className: PropTypes.string,
+  delay: PropTypes.number,
 }
 
 export default AnimatedCounter

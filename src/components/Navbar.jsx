@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Button from './Button'
@@ -123,6 +124,10 @@ const Navbar = ({ isScrolled }) => {
       </div>
     </motion.nav>
   )
+}
+
+Navbar.propTypes = {
+  isScrolled: PropTypes.bool,
 }
 
 export default Navbar

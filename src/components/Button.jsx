@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
 /**
@@ -60,6 +61,16 @@ const Button = ({
       {children}
     </motion.button>
   )
+}
+
+Button.propTypes = {
+  children: PropTypes.node,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'outline', 'ghost']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
 }
 
 export default Button

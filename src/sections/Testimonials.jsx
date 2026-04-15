@@ -124,7 +124,7 @@ const Testimonials = () => {
                     </motion.div>
                   ))}
               </motion.div>
-              <p className="text-gray-800 italic">"{testimonial.content}"</p>
+              <p className="text-gray-800 italic">&ldquo;{testimonial.content}&rdquo;</p>
             </Card>
           </motion.div>
         ))}
@@ -156,7 +156,7 @@ const Testimonials = () => {
                       <Star key={i} className="w-5 h-5 fill-primary-400 text-primary-400" />
                     ))}
                 </div>
-                <p className="text-gray-800 italic text-lg">"{testimonial.content}"</p>
+                <p className="text-gray-800 italic text-lg">&ldquo;{testimonial.content}&rdquo;</p>
               </Card>
             </motion.div>
           ))}
