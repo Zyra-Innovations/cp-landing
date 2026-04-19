@@ -248,9 +248,28 @@ const Services = () => {
                   </motion.span>
                 </p>
 
-                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                  <span className="font-semibold text-gray-700">Tech Stack:</span> {service.stack}
-                </p>
+                <motion.p
+                  className="text-sm text-gray-500 mb-4 leading-relaxed"
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.05 + 0.4, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  viewport={{ once: true }}
+                >
+                  <motion.span
+                    className="font-semibold text-gray-700"
+                    animate={{ opacity: [1, 0.75, 1] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.08 }}
+                  >
+                    Tech Stack:
+                  </motion.span>{' '}
+                  <motion.span
+                    className="inline"
+                    animate={{ y: [0, -1, 0] }}
+                    transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.05 }}
+                  >
+                    {service.stack}
+                  </motion.span>
+                </motion.p>
 
                 <motion.a
                   href="#services"

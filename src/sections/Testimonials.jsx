@@ -231,9 +231,9 @@ const Testimonials = () => {
           transition={{ type: 'spring', stiffness: 220, damping: 22 }}
         >
           <div className="text-4xl font-bold text-primary-600 mb-2">
-            <AnimatedCounter from={0} to={10000} duration={2} suffix="+" />
+            <AnimatedCounter from={0} to={2} duration={2} />
           </div>
-          <p className="text-gray-800">Happy Clients</p>
+          <p className="text-gray-800">Happy Customers</p>
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.04, y: -2 }}
@@ -249,7 +249,7 @@ const Testimonials = () => {
           transition={{ type: 'spring', stiffness: 220, damping: 22 }}
         >
           <div className="text-4xl font-bold text-primary-600 mb-2">
-            <AnimatedCounter from={0} to={50} duration={2} suffix="+" />
+            <AnimatedCounter from={0} to={1} duration={2} />
           </div>
           <p className="text-gray-800">Awards Won</p>
         </motion.div>

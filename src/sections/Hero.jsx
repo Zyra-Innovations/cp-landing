@@ -30,7 +30,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-primary-50/30 via-white/30 to-secondary-50/30 backdrop-blur-md">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 section-padding">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-20 right-10 w-96 h-96 bg-primary-200 rounded-full opacity-20 blur-3xl"
@@ -69,7 +69,7 @@ const Hero = () => {
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 container-max px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
         <motion.div
           className="text-center max-w-4xl mx-auto"
           variants={containerVariants}

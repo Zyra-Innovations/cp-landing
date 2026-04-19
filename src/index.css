@@ -23,6 +23,7 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  background: #eef3fb;
 }
 
 /* Global base styles */
@@ -33,14 +34,15 @@ html {
 
   body {
     @apply text-gray-900 font-sans;
-    background-image: url('/background.png');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    min-height: 100vh;
+    background: transparent;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -63,7 +65,10 @@ html {
   }
 
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24;
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+    padding-top: clamp(3rem, 6vw, 5.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5.5rem);
   }
 
   .container-max {
@@ -80,6 +85,10 @@ html {
 
   .glass-effect {
     @apply bg-white/80 backdrop-blur-md;
+  }
+
+  .glass-surface {
+    @apply rounded-3xl border border-white/60 bg-white/40 backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.09)];
   }
 }
 
