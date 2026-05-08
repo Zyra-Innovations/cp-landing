@@ -5,41 +5,42 @@
 
 const smoothEase = [0.22, 1, 0.36, 1]
 
+// GPU-accelerated animations for smooth 60fps performance
 export const fadeInUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.75, ease: smoothEase },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
 }
 
 export const fadeInDown = {
   initial: { opacity: 0, y: -24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.75, ease: smoothEase },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
 }
 
 export const fadeInLeft = {
   initial: { opacity: 0, x: -28 },
   animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.75, ease: smoothEase },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
 }
 
 export const fadeInRight = {
   initial: { opacity: 0, x: 28 },
   animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.75, ease: smoothEase },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
 }
 
 export const scaleIn = {
   initial: { opacity: 0, scale: 0.94 },
   animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.65, ease: smoothEase },
+  transition: { duration: 0.5, ease: smoothEase, type: 'tween' },
 }
 
 export const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.12,
+      staggerChildren: 0.08,
+      delayChildren: 0.08,
     },
   },
 }
@@ -47,7 +48,7 @@ export const staggerContainer = {
 export const staggerItem = {
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.65, ease: smoothEase },
+  transition: { duration: 0.5, ease: smoothEase, type: 'tween' },
 }
 
 export const containerVariants = {
@@ -67,31 +68,32 @@ export const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.55,
       ease: smoothEase,
+      type: 'tween',
     },
   },
 }
 
-// Scroll animations
+// Scroll animations with GPU acceleration
 export const scrollReveal = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: smoothEase },
-  viewport: { once: true, margin: '0px 0px -100px 0px' },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
+  viewport: { once: true, margin: '0px 0px -80px 0px' },
 }
 
-// Hover animations
+// Hover animations with GPU acceleration
 export const cardHover = {
-  hover: { y: -8, transition: { duration: 0.25, ease: smoothEase } },
+  hover: { y: -6, transition: { duration: 0.2, ease: smoothEase, type: 'tween' } },
 }
 
 export const buttonHover = {
-  hover: { scale: 1.02, y: -1, transition: { duration: 0.25, ease: smoothEase } },
-  tap: { scale: 0.98 },
+  hover: { scale: 1.02, transition: { duration: 0.2, ease: smoothEase } },
+  tap: { scale: 0.96 },
 }
 
-// Floating animation
+// Floating animation with GPU acceleration
 export const float = {
   animate: {
     y: [0, -10, 0],
@@ -99,6 +101,7 @@ export const float = {
       duration: 6,
       repeat: Infinity,
       ease: 'easeInOut',
+      type: 'tween',
     },
   },
 }
@@ -111,6 +114,7 @@ export const floatSlow = {
       duration: 8,
       repeat: Infinity,
       ease: 'easeInOut',
+      type: 'tween',
     },
   },
 }
@@ -122,6 +126,7 @@ export const floatFast = {
       duration: 4.5,
       repeat: Infinity,
       ease: 'easeInOut',
+      type: 'tween',
     },
   },
 }
@@ -130,11 +135,11 @@ export const floatFast = {
 export const rotateIn = {
   initial: { opacity: 0, rotate: -20 },
   animate: { opacity: 1, rotate: 0 },
-  transition: { duration: 0.75, ease: smoothEase },
+  transition: { duration: 0.6, ease: smoothEase, type: 'tween' },
 }
 
 export const rotateHover = {
-  hover: { rotate: 10, scale: 1.1 },
+  hover: { rotate: 8, scale: 1.08, transition: { duration: 0.2, type: 'tween' } },
 }
 
 // Pulse animation

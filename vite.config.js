@@ -7,6 +7,12 @@ export default defineConfig({
     port: 5173,
     open: true,
     allowedHosts: ['loma-semiperceptive-loris.ngrok-free.dev'],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     outDir: 'dist',

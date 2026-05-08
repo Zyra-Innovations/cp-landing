@@ -126,7 +126,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="primary" size="lg" className="group w-full sm:w-auto">
+              <Button to="/contact" variant="primary" size="lg" className="group w-full sm:w-auto">
                 Start Building
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
               </Button>

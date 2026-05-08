@@ -1,20 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './sections/Hero'
-import Features from './sections/Features'
-import About from './sections/About'
-import CompanyProfile from './sections/CompanyProfile'
-import Services from './sections/Services'
-import Testimonials from './sections/Testimonials'
-import CTA from './sections/CTA'
-import Footer from './sections/Footer'
+import Home from './pages/Home'
+import AboutPage from './pages/AboutPage'
+import BlogPage from './pages/BlogPage'
+import ContactPage from './pages/ContactPage'
+import CareersPage from './pages/CareersPage'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const rafId = useRef(null)
+  const lastScrollTime = useRef(0)
 
   useEffect(() => {
     const handleScroll = () => {
+      const now = performance.now()
+      // Throttle to 60fps (16.67ms)
+      if (now - lastScrollTime.current < 16) return
+      lastScrollTime.current = now
+
       if (rafId.current !== null) {
         return
       }
@@ -27,7 +31,7 @@ function App() {
     }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
       if (rafId.current !== null) {
@@ -37,35 +41,39 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen overflow-x-hidden relative">
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            backgroundImage: 'url(/background.png)',
-            backgroundAttachment: 'fixed',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.18),transparent_40%),radial-gradient(circle_at_85%_18%,rgba(99,102,241,0.16),transparent_38%),radial-gradient(circle_at_50%_88%,rgba(20,184,166,0.16),transparent_36%)]" />
-        <div className="absolute inset-0 bg-white/35 backdrop-blur-[2px]" />
-      </div>
-
-      <main className="relative z-10 flex flex-col gap-8 sm:gap-10 lg:gap-12 pb-8">
+    <BrowserRouter>
+      <ScrollHandler />
+      <div className="min-h-screen overflow-x-hidden relative">
         <Navbar isScrolled={isScrolled} />
-        <Hero />
-        <Features />
-        <About />
-        <CompanyProfile />
-        <Services />
-        <Testimonials />
-        <CTA />
-        <Footer />
-      </main>
-    </div>
+
+        <Routes>
+          <Route path="/" element={<Home isScrolled={isScrolled} />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
+}
+
+function ScrollHandler() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '')
+      const el = document.getElementById(id)
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 50)
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [location])
+
+  return null
 }
 
 export default App

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Instagram, Mail, Phone } from 'lucide-react'
+import { Linkedin, Instagram, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 /**
  * Footer Section
@@ -16,16 +17,21 @@ const Footer = () => {
     Legal: ['Privacy', 'Terms', 'Cookies', 'License'],
   }
 
+  const companyHref = {
+    About: '/about',
+    Blog: '/blog',
+    Contact: '/contact',
+    Careers: '/careers',
+  }
+
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/company/zyra-innovations/?viewAsMember=true', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/zyra_innovations?igsh=dXlnbGw5ZXZ2aG00', label: 'Instagram' },
-    { icon: Github, href: 'https://github.com/Zyra-Innovations', label: 'GitHub' },
     { icon: Mail, href: 'mailto:zyrainnovations07@gmail.com', label: 'Email' },
   ]
 
   const contactInfo = [
     { icon: Mail, text: 'zyrainnovations07@gmail.com' },
-    { icon: Phone, text: '9739360260' },
   ]
 
   return (
@@ -78,25 +84,43 @@ const Footer = () => {
             >
               <h4 className="font-semibold text-gray-900 mb-4">{title}</h4>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <motion.a
-                      href="#"
-                      className="text-gray-700/85 relative inline-block"
-                      whileHover={{ color: '#0f172a', x: 2 }}
-                      transition={{ type: 'spring', stiffness: 220, damping: 22 }}
-                    >
-                      {link}
-                      <motion.span
-                        className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"
-                        initial={{ scaleX: 0 }}
-                        whileHover={{ scaleX: 1 }}
-                        transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-                        style={{ originX: 0 }}
-                      />
-                    </motion.a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const href = title === 'Company' ? companyHref[link] || '#' : '#'
+                  return (
+                    <li key={link}>
+                      {href && href.startsWith('/') ? (
+                        <motion.div className="relative inline-block" whileHover={{ x: 2 }} transition={{ type: 'spring', stiffness: 220, damping: 22 }}>
+                          <Link to={href} className="text-gray-700/85">
+                            {link}
+                          </Link>
+                          <motion.span
+                            className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"
+                            initial={{ scaleX: 0 }}
+                            whileHover={{ scaleX: 1 }}
+                            transition={{ type: 'spring', stiffness: 220, damping: 24 }}
+                            style={{ originX: 0 }}
+                          />
+                        </motion.div>
+                      ) : (
+                        <motion.a
+                          href="#"
+                          className="text-gray-700/85 relative inline-block"
+                          whileHover={{ color: '#0f172a', x: 2 }}
+                          transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+                        >
+                          {link}
+                          <motion.span
+                            className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500"
+                            initial={{ scaleX: 0 }}
+                            whileHover={{ scaleX: 1 }}
+                            transition={{ type: 'spring', stiffness: 220, damping: 24 }}
+                            style={{ originX: 0 }}
+                          />
+                        </motion.a>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </motion.div>
           ))}

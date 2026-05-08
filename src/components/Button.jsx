@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 /**
  * Reusable Button Component
@@ -14,6 +15,7 @@ const Button = ({
   onClick,
   disabled = false,
   href = null,
+  to = null,
   ...props
 }) => {
   const baseStyles = 'font-semibold rounded-lg transition-colors duration-300 inline-flex items-center justify-center whitespace-nowrap cursor-pointer transform-gpu'
@@ -32,6 +34,16 @@ const Button = ({
   }
 
   const combinedClass = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
+
+  if (to) {
+    return (
+      <Link to={to} className={combinedClass} {...props}>
+        <motion.span whileHover={{ y: -1, scale: 1.01 }} whileTap={{ scale: 0.98 }} transition={{ type: 'spring', stiffness: 280, damping: 24 }}>
+          {children}
+        </motion.span>
+      </Link>
+    )
+  }
 
   if (href) {
     return (
@@ -71,6 +83,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   href: PropTypes.string,
+  to: PropTypes.string,
 }
 
 export default Button

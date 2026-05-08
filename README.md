@@ -2,16 +2,32 @@
 
 A modern, high-converting landing page built with **React**, **Tailwind CSS**, and **Vite**.
 
+The project now includes multi-page routing, a contact form with SMTP delivery, smoother animations, and updated navigation/CTA behavior.
+
 ## 🚀 Features
 
 - **Modern Stack**: React 18 + Vite + Tailwind CSS 3
+- **Multi-Page Routing**: Home, About, Blog, Contact, and Careers pages with React Router
+- **Updated Navigation**: Active link highlighting, home logo link, and route-based CTA buttons
+- **Contact Form SMTP Delivery**: Backend email submission through Express and Nodemailer
+- **Smoother Animations**: Performance-tuned Framer Motion interactions and scroll handling
 - **Responsive Design**: Mobile-first, fully responsive across all devices
-- **Smooth Animations**: Framer Motion for engaging interactions
-- **High Performance**: Fast load times with optimized assets
-- **SEO Ready**: Semantic HTML and meta tags
-- **Accessibility**: WCAG compliant with proper ARIA labels
-- **Dark Mode Ready**: Easy to extend with dark theme support
-- **Component-Based**: Reusable components (Button, Card, SectionWrapper)
+- **High Performance**: GPU-friendly animation updates and optimized rendering behavior
+- **Accessibility**: Keyboard-friendly navigation and semantic markup
+- **Component-Based**: Reusable components and shared animation utilities
+
+## ✨ What Was Added
+
+- New pages for `Home`, `About`, `Blog`, `Contact`, and `Careers`
+- React Router setup for full page navigation
+- Navbar logo now returns to the home page
+- CTA buttons now route to the contact page
+- Footer updated with route links and cleaned-up contact details
+- SMTP-powered contact form with loading, success, and error states
+- Express backend for sending email through an SMTP provider
+- Development proxy so the frontend can talk to the backend during local development
+- Animation and scroll performance improvements for smoother interactions
+- `.env.example` file for SMTP configuration
 
 ## 📁 Project Structure
 
@@ -22,6 +38,12 @@ src/
 │   ├── Card.jsx         # Card component with hover effects
 │   ├── Navbar.jsx       # Navigation with mobile menu
 │   └── SectionWrapper.jsx # Layout wrapper for sections
+├── pages/               # Routed pages
+│   ├── Home.jsx         # Landing page composition
+│   ├── AboutPage.jsx    # About page wrapper
+│   ├── BlogPage.jsx     # Blog placeholder page
+│   ├── ContactPage.jsx  # SMTP contact form page
+│   └── CareersPage.jsx  # Careers page
 ├── sections/            # Page sections
 │   ├── Hero.jsx         # Hero section with CTA
 │   ├── Features.jsx     # Feature cards
@@ -32,9 +54,13 @@ src/
 │   └── Footer.jsx       # Footer with links
 ├── App.jsx              # Main app component
 ├── index.css            # Global styles + Tailwind
+├── utils/               # Shared helpers
+│   └── animations.js    # Framer Motion presets
 └── main.jsx             # Entry point
 
 public/                  # Static assets
+server.js                # Express SMTP API
+.env.example             # SMTP environment template
 tailwind.config.js       # Tailwind configuration
 vite.config.js          # Vite configuration
 postcss.config.js       # PostCSS configuration
@@ -46,15 +72,17 @@ package.json            # Dependencies
 
 ### 1. **Navbar**
 - Sticky top navigation
-- Logo and menu items
-- "Get Started" CTA button
+- Logo links back to the home page
+- Active route highlighting
+- "Get Started" CTA button routes to Contact
 - Mobile hamburger menu
-- Smooth scroll effect on navigation
+- Smooth scroll behavior
 
 ### 2. **Hero Section**
 - Bold headline with gradient text
 - Subheading and description
-- Primary and secondary CTA buttons
+- Primary CTA routes to the contact page
+- Secondary CTA button for demo viewing
 - Animated background elements
 - Trust badges
 
@@ -69,7 +97,7 @@ package.json            # Dependencies
 - Mission and vision
 - Key benefits list
 - Image placeholder
-- Call-to-action button
+- Routed CTA behavior
 
 ### 5. **Services Section**
 - 6 service cards
@@ -86,16 +114,26 @@ package.json            # Dependencies
 
 ### 7. **CTA Section**
 - Strong conversion-focused headline
-- Email subscription form
+- Conversion-focused call to action
 - Feature highlights
 - Gradient background
 
 ### 8. **Footer**
 - Company information
+- Route links for About, Blog, Contact, and Careers
 - Navigation links (Product, Company, Resources, Legal)
 - Contact details
 - Social media links
 - Copyright information
+
+### 9. **Contact Page**
+- Contact form with name, email, and message fields
+- Loading, success, and error states
+- SMTP-backed email delivery
+
+### 10. **Careers Page**
+- Sample job listings
+- Company and contact links
 
 ## 🛠️ Setup Instructions
 
@@ -121,6 +159,8 @@ package.json            # Dependencies
    ```
    The app will open at `http://localhost:5173`
 
+  The dev script runs both the Vite frontend and the SMTP API backend.
+
 4. **Build for production**
    ```bash
    npm run build
@@ -131,6 +171,24 @@ package.json            # Dependencies
    ```bash
    npm run preview
    ```
+
+### SMTP Contact Form Setup
+
+1. Copy `.env.example` to `.env`
+2. Fill in your SMTP provider values
+3. Restart the dev server after saving the file
+
+Required variables:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
+- `MAIL_TO`
+- `PORT` (defaults to `3001`)
+
+Use your own SMTP credentials and app password. The `.env.example` file shows the required shape of the configuration.
 
 ## 🎨 Customization
 
@@ -217,9 +275,10 @@ Tailwind breakpoints used:
 Uses **Framer Motion** for:
 - Fade-in and slide animations
 - Hover effects on cards and buttons
-- Scroll animations (appeared on viewport)
+- Scroll animations triggered on viewport entry
 - Carousel transitions
 - Staggered animations
+- Smoother scroll handling and GPU-friendly motion updates
 
 ## 📦 Dependencies
 
@@ -228,7 +287,12 @@ Uses **Framer Motion** for:
 - **Tailwind CSS 3**: Utility-first CSS
 - **Framer Motion 10**: Animation library
 - **lucide-react**: Icon library
-- **React Router DOM**: For multi-page navigation (optional)
+- **React Router DOM**: Multi-page navigation
+- **Express**: SMTP API server
+- **Nodemailer**: SMTP email delivery
+- **dotenv**: Environment variable loading
+- **cors**: Cross-origin request handling
+- **concurrently**: Runs frontend and backend together
 
 ## 🌐 Browser Support
 
@@ -249,7 +313,7 @@ Uses **Framer Motion** for:
 ## 🔧 Available Scripts
 
 ```bash
-npm run dev       # Start development server
+npm run dev       # Start frontend and SMTP backend together
 npm run build     # Build for production
 npm run preview   # Preview production build
 npm run lint      # Run ESLint
@@ -257,26 +321,22 @@ npm run lint      # Run ESLint
 
 ## 📝 Adding Pages
 
-To add multi-page routing:
+The app already includes these routes:
 
-1. Create new section/page component
-2. Import React Router
-3. Setup routing in App.jsx:
+- `/` Home
+- `/about` About
+- `/blog` Blog
+- `/contact` Contact
+- `/careers` Careers
 
-```jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+If you want to add another page, create a component in `src/pages/`, add a route in `src/App.jsx`, and include it in the navigation if needed.
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  )
-}
-```
+## 🔗 Route Behavior
+
+- Navbar logo returns to the home page
+- Active nav items are highlighted automatically
+- Hero and header CTAs route to the contact page
+- Footer company links navigate to the routed pages
 
 ## 🚀 Deployment
 
